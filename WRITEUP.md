@@ -1,6 +1,6 @@
 # Kaggriculture: what we built, what we learned, what didn't work
 
-Team "feel the agi". Final submissions: g012m and g010c04. Same agent, two different parameter settings. Code, harness and all the research notes are on GitHub (link below).
+Team "feel the agi". Final submissions: g012m and g010c04. Same agent, two different parameter settings. Code, harness and all the research notes are on GitHub ([github.com/amrrs/kaggriculture-feel-the-agi](https://github.com/amrrs/kaggriculture-feel-the-agi)).
 
 ## The agent
 
