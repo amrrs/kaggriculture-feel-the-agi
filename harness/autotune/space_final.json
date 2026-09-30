@@ -1,0 +1,6 @@
+{"knobs": ["HANDS_MAX", "HAND_SLACK", "HIRE_DOWN_W", "HAND_W",
+           "SQ_W", "SQ_DECAY", "SQ_SPLIT", "SQ_START_DAY", "MPC_W", "MPC_H", "MS_SLOT", "SELL0_MAX",
+           "CARE_W", "FERT_WHEAT_MAXP", "WHEAT_BUFFER", "OVERFLOW_TARGET", "LATE_HARVEST_W", "AH_V", "ALLOC_MARGIN", "STRAW_AB_x",
+           "LATE_START", "PLANT_LAST_DAY", "TOM_FIRST_DAY", "TOM_OPP_MARGIN", "AMAX_TOM"],
+ "ranges": {"STRAW_AB_x": [0.6, 1.25]},
+ "note": "25 knobs that changed the det-mode action digest on >= 2 screen seeds (screen: out/screen_summary.json, out/screen_chg.json; seed 20004 excluded: base itself not reproducible across processes there). Dropped although live: SQ / MPC_SELL / MV_GATE flips (lost on both seeds), HANDOVER (216 -6k/+1k, 288 -16k/-23k), LAND_MAX_EXTRA (3: -17k/-7k), LABOUR_COST, SQ_MIN_GAIN, HOLD_OPP_GATE, MV_LAB, COLLECT_MIN_PRICE, RESCUE_HOUR, LATE_RATIO, STRAW_ADD_MAX, ENDGAME_FEED, MS_CAP (small/one-direction). Dead on all usable seeds: TOM_HOLD, TOM_HOLD_MAX, TOM_HOLD_OPP_W, herd (HERD_SHEEP_x/Y1/LEAD/DAY_MAX), ALLOC_LAST_DAY *, ALLOC_MAX STRAW/SHEEP/COW/GOOSE/CARROT, CARROT_HOLD*, CASH_RESERVE, FERT_BUY_MAXP, MPC_ROOM, MPC_TV, MPC_DEC, MELON_LABOUR, END_MIN, HIRE_DOWN_MIN, WHEAT_KEEP_ROOM, LAND_RESERVE."}

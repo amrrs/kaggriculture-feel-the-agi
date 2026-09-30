@@ -1,0 +1,665 @@
+{
+ "day0_calendar_DSM_15of15": [
+  {
+   "h": 0,
+   "market": [
+    [
+     "BUY_ANIMAL",
+     "COW",
+     1
+    ],
+    [
+     "BUY_ANIMAL",
+     "SHEEP",
+     1
+    ],
+    [
+     "BUY_ANIMAL",
+     "SHEEP",
+     1
+    ],
+    [
+     "BUY_ANIMAL",
+     "SHEEP",
+     1
+    ],
+    [
+     "BUY_PRODUCT",
+     "WHEAT",
+     5
+    ]
+   ]
+  },
+  {
+   "h": 1,
+   "market": [
+    [
+     "HIRE"
+    ],
+    [
+     "HIRE"
+    ],
+    [
+     "HIRE"
+    ],
+    [
+     "HIRE"
+    ],
+    [
+     "HIRE"
+    ],
+    [
+     "BUY_ANIMAL",
+     "COW",
+     1
+    ],
+    [
+     "SELL",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 2,
+   "units": [
+    [
+     "BUILD_PASTURE",
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "SELL",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 3,
+   "units": [
+    [
+     "PLACE",
+     "COW",
+     [
+      4,
+      4
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "SELL",
+     "WHEAT",
+     1
+    ],
+    [
+     "BUY_PRODUCT",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 4,
+   "units": [
+    [
+     "BUILD_PASTURE",
+     [
+      3,
+      4
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_PRODUCT",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 5,
+   "units": [
+    [
+     "BUILD_PASTURE",
+     [
+      4,
+      3
+     ]
+    ],
+    [
+     "PLACE",
+     "SHEEP",
+     [
+      3,
+      4
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "MELON",
+     2
+    ],
+    [
+     "BUY_PRODUCT",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 6,
+   "units": [
+    [
+     "PLACE",
+     "SHEEP",
+     [
+      4,
+      3
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "MELON",
+     2
+    ]
+   ]
+  },
+  {
+   "h": 7,
+   "units": [
+    [
+     "BUILD_PASTURE",
+     [
+      4,
+      2
+     ]
+    ],
+    [
+     "BUILD_PASTURE",
+     [
+      2,
+      4
+     ]
+    ],
+    [
+     "PLANT",
+     "MELON",
+     [
+      4,
+      1
+     ]
+    ]
+   ]
+  },
+  {
+   "h": 8,
+   "units": [
+    [
+     "PLACE",
+     "COW",
+     [
+      4,
+      2
+     ]
+    ],
+    [
+     "PLACE",
+     "SHEEP",
+     [
+      2,
+      4
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 9,
+   "units": [
+    [
+     "PLANT",
+     "MELON",
+     [
+      2,
+      3
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 10,
+   "units": [
+    [
+     "PLANT",
+     "MELON",
+     [
+      1,
+      4
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      4,
+      0
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "MELON",
+     2
+    ]
+   ]
+  },
+  {
+   "h": 11,
+   "units": [
+    [
+     "PLANT",
+     "MELON",
+     [
+      3,
+      3
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      3,
+      1
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 12,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      2,
+      2
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     3
+    ]
+   ]
+  },
+  {
+   "h": 13,
+   "units": [
+    [
+     "PLANT",
+     "MELON",
+     [
+      0,
+      4
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      3,
+      0
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 14,
+   "units": [
+    [
+     "PLANT",
+     "MELON",
+     [
+      3,
+      2
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      2,
+      1
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "SELL",
+     "WHEAT",
+     2
+    ]
+   ]
+  },
+  {
+   "h": 15,
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 16,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      2,
+      0
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 17,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      0,
+      2
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 18,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      0,
+      1
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 19,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      1,
+      0
+     ]
+    ]
+   ],
+   "market": [
+    [
+     "BUY_SEED",
+     "WHEAT",
+     1
+    ]
+   ]
+  },
+  {
+   "h": 20,
+   "units": [
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      1,
+      2
+     ]
+    ],
+    [
+     "PLANT",
+     "WHEAT",
+     [
+      0,
+      0
+     ]
+    ]
+   ]
+  }
+ ],
+ "day0_note": "these are EXECUTED orders reconstructed by lockstep; hands also WATER each new plant the next hour, FEED/CARE animals right after PLACE. Full raw tapes incl. moves: tapes_all.json (key '<ep>_<p>'). DSM h0 uses three separate SHEEP 1 orders; MMPQ buys COW 1 + WHEAT 5 at h0 and SHEEP 3 (one order) at h1. For an exact d0 copy replay a DSM raw tape (tapes_all.json, any key with tag DSM; 15/15 identical to h21).",
+ "land": {
+  "NE": {
+   "day": 6,
+   "hour": [
+    3,
+    5
+   ],
+   "trigger": "first hour on d6 where cash + same-step sale proceeds >= 1000 (wool/fert sold in the same market list BEFORE the BUY_LAND order)"
+  },
+  "SW": {
+   "day": [
+    8,
+    9
+   ],
+   "hour_modal": "d8 h6 (else d9 h3-5)",
+   "trigger": "first hour cash+same-step proceeds >= 2000 on d8-9 (funded by d8 h1 milk sale + fert)"
+  },
+  "SE": {
+   "day": 10,
+   "hour": [
+    9,
+    12
+   ],
+   "trigger": "same step as the first SELL MELON of the d0 melon harvest; order list [SELL MELON ..., BUY_LAND]",
+   "share_T3": "37/37 farms; Vadim/Victor 5/22"
+  }
+ },
+ "hires": {
+  "d0": {
+   "n": [
+    4,
+    5
+   ],
+   "hour": 1
+  },
+  "d1": {
+   "n": [
+    2,
+    4
+   ],
+   "hour": 0
+  },
+  "d2": {
+   "n": [
+    5,
+    6
+   ],
+   "hour": 0
+  },
+  "d3_d5": {
+   "n": [
+    5,
+    6
+   ],
+   "hour": 0
+  },
+  "d6": {
+   "n": 9,
+   "hour": 0
+  },
+  "d7": {
+   "n": 8
+  },
+  "d8": {
+   "n": 9.5,
+   "hours": "8-9 at h0 + 1 at h1"
+  },
+  "d9": {
+   "n": 10.5,
+   "hours": "8-9 at h0 + 1.5-2.5 at h1"
+  },
+  "d10_d27": {
+   "n": 12,
+   "hours": "8 at h0 (market list = 8-9 HIRE + 1-2 SELL) + 4 at h1"
+  },
+  "d28": {
+   "n": 11
+  },
+  "d29": {
+   "n": 10
+  },
+  "cost_per_day_12": 376
+ },
+ "herd_keyed_at_d10": {
+  "note": "dX3 = units/4h demanded by the first 3 drawn shops (d3,d6,d9) for product X: shop with 1 product counts 2 (YARN_STORE for wool, PET_CAFE for carrot), multi-product shops count 1",
+  "sheep": "3.0 + 3.7*dW3 (R2 0.97)",
+  "cows": "3.9 + 3.3*dM3 (R2 0.91)",
+  "geese": "4.3 + 3.6*dE3 (R2 0.69)",
+  "V183_for_contrast": "sheep 2.7+4.9*dW2 (keys on 2 shops only), cows 5.0+3.2*dM2, geese ~5.9 flat (bought d2)"
+ },
+ "crops_keyed": {
+  "straw_tiles_d10": "15.6 + 9.2*dS2 (R2 0.76)",
+  "straw_tiles_d15": "23.1 + 9.8*dS2",
+  "tomato_tiles_d18": "10.5 + 6.8*dT5 (R2 0.88; dT5 = tomato demand of first 5 shops, i.e. known by d15)",
+  "tomato_first_plant": "d8 (d8-10 in 36/37 farms), independent of tomato shops; total tomato plantings 7-38 scale with tomato demand",
+  "carrot": "first plant d10-26, volume 5-108 plantings; key NOT determined (weak link to carrot shops)"
+ },
+ "fertilize": {
+  "source": "collected only (buy 0-60 coins/game)",
+  "WHEAT": "age 2 (98.6/farm), age 1 (8.7), age 3 (19.7)",
+  "STRAWBERRY": "age 9 and 13 (two applications cover the 4 production nights 9,11,13,15)",
+  "TOMATO": "age 7 (14.2) and 10 (8.9)",
+  "CARROT": "age 2",
+  "MELON": "none (1/farm)",
+  "leftover": "~240 units/game sold, 1-2 per step, mostly h0/h2/h22 (d<=12 at 0.85-1.0 base, later at floor 0.1-0.5 base)"
+ },
+ "feed_gate": {
+  "cow": "last FEED = last production night <= d28 (252/301 animals); typical d27",
+  "goose": "last FEED d27-28 (= last production night or 1 day before)",
+  "sheep": "last FEED = last production night for 135/230; 42 skip the last cycle (stop 3 days earlier) and ~26 stop 4-7 days earlier -> sheep count 6.2 (d21) -> 3.8 (d27) -> 0.3 (d28). Trigger for the early stop NOT determined (probably wool price vs 3 wheat)"
+ },
+ "selling": {
+  "premium_hours": "STRAWBERRY, MILK, WOOL: sell at h%4==1 (h1,5,9,13,17,21) right after each town shop tick; P(sell|stock) at those hours 0.37-0.89 (straw), 0.26-0.87 (milk), 0.52-0.63 (wool); other hours <0.2",
+  "premium_lot": "strawberry k=2 if stock>=6 else 1; milk k=2 if stock>=6, 1 if 3-5, 0-1 if <3; wool 0-1 if stock<6 (~50% of ticks), 1 if 6-11, 2 if >=12. At h%4==1 with stock>=3: sell in ~65% (straw) / 55% (milk) / 60% (wool) of ticks; rest HELD (EOD shed strawberry ~13 on d16 vs V183 0).",
+  "premium_price_dependence": "weak: straw sold fraction 0.07 at price<0.1*base, 0.17-0.29 at 0.2-0.7, 0.33-0.40 at >=0.9; they do NOT refuse to sell at the floor (wool decile-10 price 0.12*base)",
+  "tomato_carrot_egg": "end/start of day: h22-23 (P 0.75-0.89) and h0 (0.28-0.39); lots 1-2 or whole stock (10-13)",
+  "melon": "sold d10-d18 on harvest, lots of 6 (one tile), h0/h6-h11",
+  "wheat": "sold in lots <10 at almost every hour (h22 94, h0 75, h1 77, h2 50, h18-20 ~28 each /farm over d11-29); d29 dump ~100",
+  "d29": "sell all remaining (wheat 97, carrot 37, egg 22, straw 16, tomato 15, milk 12, fert 12, wool 6 units/farm)",
+  "V183_contrast": "V183 sells whole stock (sold/stock median 1.00) on h0-1 and h17-23; eggs every step; carrots at h0",
+  "premium_skip_trigger": "NOT determined (4h price change, price vs own last sale, previous-tick sale all tested; none separates)"
+ },
+ "wheat": {
+  "buy_d0_d10_T3": "~100 units total (8,6,0,0,1,5,7,15,13,15,29 per day)",
+  "buy_d0_d10_V183": "~900 units (62,39,7,26,46,128,97,82,120,140,158)",
+  "buy_after_d10": "T3 ~5.2k coins total, lots of 13 at h0-1 when shed wheat short",
+  "reserve": "EOD shed wheat / animals: 1.7-2.3 (d11-15), 1.2-1.7 (d16-27); intra-day minimum 0 (just-in-time)"
+ },
+ "endgame_last_day_median": {
+  "PLANT_STRAWBERRY": "14-15",
+  "PLANT_TOMATO": "17-19",
+  "PLANT_CARROT": "26-27",
+  "PLANT_WHEAT": 27,
+  "PLANT_MELON": 6,
+  "BUY_ANIMAL": "cow 9, goose 9-10 (none after d11 except rare)",
+  "BUILD_COOP": 10,
+  "FEED_cow_goose": 28,
+  "FEED_sheep": 26,
+  "CARE": "27-28 (sheep 25-26)",
+  "FERTILIZE": 28,
+  "WATER_S_T": 28,
+  "WATER_W_C": 29,
+  "DIG": "26-27",
+  "BUY_SEED_WHEAT": 27,
+  "BUY_SEED_CARROT": 26
+ },
+ "layout_d10_DSM_modal": [
+  "S  S  S  S  c  S  S  S  S  S",
+  "S  S  c  c  W  S  S  S  S  W",
+  "S  c  c  W  c  g  g  S  S  S",
+  "M  M  W  W  s  c  M  M  W  S",
+  "T  W  s  s  c  c  s  M  M  M",
+  "W  W  g  g  c  W  W  W  W  W",
+  "W  W  W  W  g  S  W  .  .  .",
+  "T  W  W  W  g  S  .  .  .  .",
+  "W  W  W  W  W  S  .  .  .  .",
+  "T  W  W  W  W  S  .  .  .  ."
+ ],
+ "layout_legend": "rows y0..y9, columns x0..x9; W wheat C carrot T tomato S strawberry M melon c cow s sheep g goose; modal across 15 DSM farms (see tab/layout_*.txt for shares and other days)"
+}

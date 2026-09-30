@@ -1,0 +1,101 @@
+agents/micro -- design note (micro-execution layer on lx1)
+
+BASE
+  lx1 = lateexec/build/lx1/main.py (sha256 8408db9d2a65...). Its circuit is embedded (_CIRC_B64) and is an OLDER copy than
+  lateexec/circuit.py, so everything here patches the embedded copy: _lx1_embedded_circuit.py (extracted verbatim).
+  build_micro.py applies the patches -> circuit_micro.py, re-embeds it in lx1's main.py and appends the tag's XC_P flags.
+  All new flags default off; m0 (no flag) reproduces lx1 action-for-action (identical per-step digest, see RESULTS).
+
+WHAT lx1 LOSES (measured on V169 position 114559666 with diag.py, lx1, days 11-29)
+  - planned route cost is ~full every day (sum 291-319 steps for 13-14 units, i.e. at the unit-hours available), yet 203 unit
+    PASS at hours 20-23. Causes found:
+    a) plan <-> unit time mismatch: hands appearing at hour 1 (23 hours) got 20-21-step plans (planned for hour-1/2 hires)
+       because the executor gives each new hand the free plan whose first stop is nearest; hands appearing at hour 2 then got
+       the 22-step plans (overrun -> runtime shedding). 2 idle steps x ~20 unit-days, plus sheds.
+    b) orphan plantings: trim_optional drops a DIG (value 5) but keeps the PLANT + WATER behind it; at run time PLANT is
+       'skip' (tile not empty) and WATER invalid -> 59 PLANT skips / 46 WATER fails per game: ~2 planned steps each that the
+       plan paid for (other optional work was trimmed to make room) and that become idle time.
+    c) FILL restores trimmed work into its own route only and stops at the first action that does not fit; XFILL moves only
+       CARE/COLLECT/HARVEST and only as new stops; routes are built by farthest-first insertion + one-stop moves.
+
+THE LAYER (three flags, each replaceable independently)
+  OPT_ROUTE  micro_opt(): prize-collecting VRP local search on the day plan (after lx1's hand count, FILL and XFILL).
+     vehicles = lx1's units with lx1's step limits (budget + FILL slack: farmer 24, hour-0 hires 23, hour-1 22, hour-2 21);
+     node = a visit to a tile with a subset of that tile's original actions (tile_stop output, engine execution order).
+     cost = actions + 1 PICKUP per distinct carried input (wheat / fertilizer / animal) + Manhattan path from the shed tile
+       nearest the first node (+ walk back + DROP on return routes) = lx1's exact route_cost model.
+     objective (lexicographic): over-limit steps, -(value of the actions that can actually execute), total steps. Values are
+       lx1's own planner values (CARE 0.9 x price, AH harvest 0.3 x units x price, PLANT units x price x 0.6, ...).
+     constraints: step limit per route; day-end shed-overflow cap on carried produce of non-return routes (lx1's target 96);
+       precedence inside a tile: PLANT/BUILD need every DIG/HARVEST before them, anything after a PLANT/BUILD needs it, the new
+       planting's WATER comes with it; a bundle that changes the tile (DIG/PLANT/BUILD/PLACE or anything with dependants) stays
+       in the one visit that owns the tile's other actions; independent actions (CARE, COLLECT, FERTILIZE, WATER, off-day /
+       deferrable HARVEST) may be merged into any visit of the tile (+1 step) or added as a separate visit (XFILL-style).
+     moves: repair orphans (remove the PLANT+WATER whose DIG was trimmed; the DIG+PLANT+WATER bundle becomes a candidate),
+       2-opt + or-opt (segments 1-3) inside routes, relocate a visit to another route, swap visits, greedy insertion of
+       missing bundles (value order, cheapest feasible position), ejection (move one visit away to make room), replacement
+       (drop cheaper independent optional actions for a more valuable bundle, <= 4 steps).
+     anytime: starts from lx1's final routes in the order lx1's plan builder would produce; keeps only feasible states, so
+       stopping at any time returns a plan at least as good as lx1's in the plan objective; returns None (lx1 plan kept) if
+       nothing improves or on any exception. Deterministic op cap OPT_OPS 20000 (~0.07 s on the M-series laptop), wall cap
+       OPT_WALL 0.2 s, and a whole-step cap OPT_STEP_CAP 0.5 s measured from the agent's entry (lx1 planning included).
+     not OR-Tools: the Kaggle runtime is not guaranteed to ship ortools (a missing import would forfeit games), and the model
+       needs per-route pickup costs, a global overflow cap and intra-tile precedence; a 20k-op pure-python search runs in
+       ~0.07 s on these 60-100-stop instances (a 100k-op budget found ~+3k more plan value per game on 114559666 at 5x the time;
+       OPT_OPS is the knob if the batch says the search is budget-bound).
+  OPT_ASSIGN  hands appearing in the same hour (same hours left) take the free plans that fill those hours best (longest first,
+     capped at hours left, less overrun on ties); each chosen plan goes to the new hand that reaches it soonest from its spawn
+     tile. Later (shorter) hands get the shorter plans.
+  OPT_HIRE   (coordinator addendum, separate stage) the hand count is re-judged with the optimiser: hire one more hand while the
+     routed value it adds > its wage (fib(n-1) for the n-th hand), one fewer while the routed value lost < the wage saved; at
+     most OPT_HIRE_MAX (2) steps from lx1's count, within lx1's [HANDS_MIN, hmax]; each trial = lx1's build() with a small op
+     budget + micro_opt with OPT_HIRE_WALL 0.05 s; skipped when the step clock is short. Off in the pure-routing build.
+  Strategic decisions (allocation / what to plant, buy, sell, prices, land, hire count unless OPT_HIRE) are untouched. Seed,
+  wheat and fertilizer purchase quantities follow the plan's needs as in lx1 (more executed FERTILIZE/PLANT -> more bought).
+
+BUILDS (build/<tag>/main.py; sha256 in RESULTS.txt)
+  m0  = no flag (parity);  mr = OPT_ROUTE + OPT_ASSIGN (routing, lx1 hire count);  mrh = mr + OPT_HIRE;
+  mro = OPT_ROUTE only, ma = OPT_ASSIGN only (component checks).
+
+MERGE MAP (exactly what changes in lx1's circuit; build_micro.patch(src) applies it to any circuit copy with the same anchors)
+  1. P dict: new keys OPT_ROUTE, OPT_WALL, OPT_OPS, OPT_MIN_V, OPT_EJECT, OPT_REPLACE, OPT_SWAP, OPT_ASSIGN, OPT_STEP_CAP,
+     OPT_HIRE, OPT_HIRE_W, OPT_HIRE_WALL, OPT_HIRE_OPS, OPT_HIRE_MAX (inserted after 'DEBUG').
+  2. new code (micro_opt.py) pasted right before `def plan_day`: _HD, _hd, _KEY_OP, _TILE_CHANGE, _MT, _MN, _okeys, _path,
+     _ocost, _ins_delta, _improve_route, micro_opt, _micro_opt. No existing function is replaced.
+  3. _plan_day, three hooks: (a) OPT_HIRE block after `over, dval, hands, routes, ... = best_plan`; (b) OPT_ROUTE call just
+     before `_FILLREF.clear(); plans = []`; (c) in the plan-building loop, `if r:` uses the optimiser's explicit order when
+     present (else lx1's nn_order + two_opt).
+  4. agent(): OPT_ASSIGN block right after `n_units = len(positions)` (before lx1's nearest-first-stop assignment loop).
+  The endgame controller / hybrid opponent switch touch other layers (market / allocation / top-level ctrl); as long as they
+  keep _plan_day's hook lines and agent()'s assignment loop, the four patches apply mechanically (patch() asserts each anchor
+  occurs exactly once).
+
+FILES
+  micro_opt.py (optimiser source), build_micro.py (patch + build), circuit_micro.py (patched circuit, generated),
+  smoke.py (V169 single-game runner, ledger-wrapped engine), analyse_lab.py (physical metrics), diag.py (plan vs execution
+  diagnostics), batch.py / batch_report.py / run_batch.sh (pod batch), RESULTS.txt (log), out/smoke (smoke JSONs).
+
+PORTS (round 2, port.py)
+  lx3 (lateexec/build/lx3), V183 (codex v179-gate-loader/build/dated_gate, read-only) and the hybrid (hybrid/build/hybrid)
+  all embed a circuit with the same six anchors; port.py extracts it, applies build_micro.patch() unchanged and turns the
+  flags on in the circuit's own P defaults (so they survive the parents' x.P.update calls). V183's dated gate wraps
+  plan_day / tile_stop but calls the circuit's plan_day -> _plan_day, so the hooks run under the gate; the hybrid's step-264
+  switch only swaps plan_day/tile_stop/mv_marginal back to the raw circuit functions, so both modes carry micro.
+  Coexistence with the lx2/lx3 execution flags:
+    ASSIGN3 / ASSIGN2  superseded by OPT_ASSIGN when it is on (OPT_ASSIGN's block runs first and assigns every new hand).
+    PLAN_H1ALL, H0EST  kept: they set the budgets the optimiser reads (its limits = budget + FILL slack).
+    CREDIT             kept and modelled: _ocost drops a WHEAT/FERTILIZER pickup when the route's own harvests/collects cover
+                       it (same rule as credit_short == 0); materialised stops carry wy; insertion re-checks the exact cost.
+    DIG_DEP            kept (trim side); the optimiser's own orphan repair is a no-op when DIG_DEP already removed them.
+    REORDER, LOADFIX, SELLS_FIRST, MIDDROP_LAST, MPC_SELL, MV_GATE: untouched (execution / market layers).
+  Step cap: OPT_STEP_CAP 0.5 s (m builds) / 0.35 s ('s' builds); on a fully loaded 32-worker pod the 0.5 cap binds
+  (step max 0.51-0.57 s, mh up to 0.65 s); 0.35 matched 0.5 on the tape judge (+3, se 5).
+
+MICRO v2 (OPT_LATE, default off; builds *m2 / mrh2 / mr2 / v183l)
+  new code appended to micro_opt.py: _late_care_ok, _late_jobs, late_assign, late_redispatch. Two more hooks in agent():
+    5. right after `if idle and hour >= 2: help_assign(...)`: `if P['OPT_LATE'] and day < LAST_DAY: late_assign(...)`.
+    6. the exec line `acts.append(exec_unit(...) or ['PASS'])` becomes: exec, and if OPT_LATE and the plan just ended with PASS,
+       late_redispatch() (home-drop or a live job started the same step).
+  Jobs never include FEED (no sale wheat consumed); CARE values come from the circuit's tile_stop (the dated gate's value in
+  V183 mode), so gate-skipped / zero-valued CAREs stay skipped. Pre-positioning is not modelled: the engine respawns every
+  unit at the shed each morning.

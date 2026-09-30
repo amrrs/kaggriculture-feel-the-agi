@@ -1,0 +1,221 @@
+micro-execution agent (agents/micro) -- progress log
+[2026-09-29 05:35] start. Base lx1 = lateexec/build/lx1/main.py (sha256 8408db9d...). Its embedded circuit (older than
+  lateexec/circuit.py) extracted to _lx1_embedded_circuit.py (2379 lines); all micro code is patched into a copy of THAT file so
+  flag-off is bit-identical to the shipped lx1.
+[05:35] design: pure-python prize-collecting VRP local search (no OR-Tools: the Kaggle runtime is not guaranteed to
+  ship ortools and the model has pickups, a global shed-overflow cap and intra-tile precedence). See DESIGN.txt.
+[05:48] builds (build_micro.py; main.py sha256): m0 7687318d...c6e23f (parity) | mr 74659037...5726 (OPT_ROUTE+OPT_ASSIGN)
+  | mrh 8934fbae...5c6d92 (mr + OPT_HIRE) | mro a73bc10b... (OPT_ROUTE only) | ma b8e57814... (OPT_ASSIGN only).
+  circuit_micro.py 4072e3fb..., micro_opt.py 2828a062...; base lx1 main.py 8408db9d...8e6b. Engine kaggle_environments 1.32.7.
+[05:48] PARITY (flag off): m0 vs lx1 on V169 114559666 seat 0 (456 agent steps, t=264..718): per-step action digest
+  identical 42aef87cc40b (money 108240 both), re-checked after every later edit (last: after OPT_STEP_CAP).
+[05:48] DIAG (diag.py, lx1 on 114559666): planned route cost is at capacity every day (291-319 steps / 13-14 units) yet
+  203 PASS at h20-23. (a) assignment: hands appearing at hour 1 (23 h) took 20-21-step plans (nearest-first-stop rule), hour-2
+  hands took 22-step plans (overrun -> sheds): hours_left - planned = +1..+3 on 90 of 115 unit-days; (b) orphan plantings:
+  59 PLANT 'skip' + 46 WATER fail per game (DIG trimmed at value 5, PLANT+WATER kept and budgeted).
+  mr: orphans 59 -> 8 PLANT skips.
+[05:48] SMOKE on 3 saved V169 day-11 positions (same state, tape opponent, deterministic planning CEM_PLAN_WALL=1e9;
+  single games -> margins carry +-3-4k chaotic noise, physical metrics are the point). Days 11-29, our seat:
+  ep        seat cand margin  money  work/unit-day work passes PASS_h20-23 care care_cov units_harv harv_acts hires escaped step_max
+  114559666 0 lx1  -28392 108240 12.76 3049 214 203 323 0.609 1646 481 235 15 0.082
+  114559666 0 mr   -25205 106376 12.94 3130 124 121 348 0.644 1687 496 238 16 0.142
+  114559666 0 mrh  -23341 108066 13.31 3195  99  98 349 0.646 1757 511 236 16 0.340
+  114553748 0 lx1  -18693  77411 12.82 2894 208 199 201 0.532 1647 482 220 11 0.074
+  114553748 0 mr   -13082  82067 13.36 3079  88  85 221 0.585 1793 526 225 11 0.136
+  114553748 0 mrh  -12833  82375 13.49 3072  66  66 221 0.585 1792 526 222 11 0.253
+  114621113 1 lx1   -2131 110675 13.38 2799 204 188 301 0.836 1490 513 202 16 0.065
+  114621113 1 mr    -1004 110434 13.74 2848 183 147 291 0.808 1530 513 200 10 0.109
+  114621113 1 mrh   -1823 110000 13.95 2840 128 118 297 0.825 1507 518 196 13 0.322
+  PASS by hour 16-23 (114559666): lx1 [2,1,2,5,10,16,50,127] mr [0,0,0,1,4,15,40,62] mrh [0,0,0,1,6,16,28,48]
+                     (114553748): lx1 [1,1,2,5,13,21,53,112] mr [0,0,0,2,2,10,23,50] mrh [0,0,0,0,0,8,17,41]
+  mr vs lx1: margin +3187 / +5611 / +1127 (3/3), work +81/+185/+49, PASS h20-23 -82/-114/-41, units harvested +41/+146/+40,
+  care +25/+20/-10 (care_cov +0.035/+0.053/-0.028). Hire stage (mrh vs mr): +1864 / +249 / -819 (noise level), PASS -25..-55,
+  hires -2..-4 over the game (it mostly trims a hand on light days and the last days; lx1's cap hmax 12/13 binds going up).
+  Fresh h2h smoke seed 15301 seat 0 vs lx1: lx1 mirror 0, mr -2347 (work +84, PASS -27), mrh +1631 (PASS -123, hires -7).
+[05:48] STEP TIME (laptop, M-series, live PLAN_WALL 0.4 -> same digests as op-limited runs, i.e. no wall hit):
+  max per step lx1 0.08 s, mr 0.11-0.16 s, mrh 0.25-0.34 s; mean 0.002 / 0.004 / 0.009 s. Fresh games: mr max 0.10-0.13 s.
+  Guard: OPT_STEP_CAP 0.5 s from the agent's entry (lx1 planning included) caps every micro stage; hire trials are skipped
+  when fewer than OPT_WALL + 2 x OPT_HIRE_WALL remain. On a 2-3x slower CPU the op caps become wall caps (anytime, still valid).
+
+READY FOR BATCH  (2026-09-29 05:48)
+  command (32-core box, repo checked out, python with kaggle_environments==1.32.7):
+    bash research/claude/2900/agents/micro/run_batch.sh research/claude/2900/agents/micro/out/b1 32
+  = python batch.py out/b1 32 --cands lx1,mr,mrh --opps lx1,hybrid,lx3,v183 ; python batch_report.py out/b1 --json out/b1/summary.json
+  jobs: 60 V169 continuations (20 positions x {lx1, mr, mrh}, paired on the identical day-11 state) + 1152 fresh games
+  (seeds 15301-15348 x both seats x {lx1, hybrid, lx3, v183} x {lx1, mr, mrh}). Laptop timing: ~2-3 s per V169 game,
+  ~3 s per fresh game -> ~3-6 min on 32 cores. Resumable (skips existing JSONs). Needs the repo's lateexec/build/lx1,
+  lateexec/build/lx3, hybrid/build/hybrid, codex v179-gate-loader/build/dated_gate and wild/ledger/{src,tapes,positions20.json}.
+  Report: per candidate x opponent win rate (primary), mean, worst, paired delta vs lx1 (and mrh vs mr = hire stage alone),
+  physical metrics (work/unit-day, PASS h20-23, care coverage, units harvested, hires), step max / p99.
+  Optional component split: add --cands lx1,mro,ma (routing only / assignment only).
+[05:49] COMPONENT smokes (single games): 114553748 s0 margin/work/PASS: lx1 -18693/2894/208, mro (routing only)
+  -14086/2945/150, ma (assignment only) -14551/2945/210, mr (both) -13082/3079/88. 114559666 s0: lx1 -28392/3049/214,
+  mro -29512/2998/170, ma -27544/3104/184, mr -25205/3130/124. Routing alone packs the plans but without time-matched
+  assignment the packed plans overrun on the wrong hands (runtime sheds), assignment alone has little to match; together
+  they move the physical metrics. -> batch candidates mr (primary) and mrh (hire stage on top).
+  Residual idle under mr (diag): gap hours_left - planned 1-3 steps on ~30 unit-days/game = days where no missing work fits
+  (light days); that slack is what OPT_HIRE trades for a hand (mrh PASS 124 -> 99, 88 -> 66, 183 -> 128).
+
+HANDOFF (agents/micro, 2026-09-29 05:49)
+  strongest candidate: research/claude/2900/agents/micro/build/mr/main.py  sha256 74659037fd7eaf23d1f6b39253b527dd88a64da7575a599826b426da36bd5726
+    (= lx1 8408db9d + OPT_ROUTE + OPT_ASSIGN; hire count, allocation and market identical to lx1's logic)
+  hire-stage variant:  build/mrh/main.py sha256 8934fbae5937eb6921a0a52b721008cd57d069ea4b3d7556a2a3836c585c6d92
+  parity build:        build/m0/main.py  sha256 7687318dbc6e23f2aedf1197a228e5695eed439017be1b37f34819fad6dcc479 (== lx1 actions)
+  engine kaggle_environments 1.32.7 (.venv), python 3.11. Local results = the smoke table above (3 V169 positions + 1 fresh
+  seed); no batch has been run -- win rates come from run_batch.sh on the coordinator's pod. No uploads made.
+
+==== ROUND 2: port to lx3 / V183 / hybrid (2026-09-29 06:17)
+[06:17] coordinator batch on mrh (recorded as received): vs lx1 +2344 (87.5% wins), vs lx3 +2199 (58%), vs hybrid +2460
+  (31%), vs V183 +2269 (24%), fresh 15301-15348 both seats; tape judge 141 top-tier games mrh-lx1 +2190 (se 119, 134/7), wins
+  48%->58%; mrh-lx3 +135; mrh-V183 -2923.
+[06:17] port.py: parent circuit extracted, build_micro.patch() applied unchanged (all 6 anchors found once in lx3's and
+  V183's circuits; hybrid's circuit == V183's), flags switched on in the circuit's own P defaults (survive the parents'
+  x.P.update; hybrid: both the dated-gate mode and the step-264 lx3 mode run the patched _plan_day/agent()).
+  micro_opt.py now models CREDIT (lx2/lx3 lineage: credited wheat/fertilizer needs no pickup; insertion re-checks the exact cost
+  and undoes) and carries the stop's wy (credited wheat) -- both inert when CREDIT is off (lx1-based mr/mrh builds untouched).
+  OPT_ASSIGN supersedes ASSIGN3/ASSIGN2 (runs first, assigns every newly appearing hand); PLAN_H1ALL/H0EST budgets, REORDER,
+  CREDIT, LOADFIX, DIG_DEP, SELLS_FIRST, MIDDROP_LAST, the V183 gate / MPC_SELL / MV_GATE stay as in the parent.
+  builds (main.py sha256):
+    lx30  88d7db85a08f9f0f311c9b847c7e900159908b34b88af0a4f6d5d3d536e2b1e0 (parity)   parent lx3 e55f9a8af12a
+    lx3m  7875b171ab5c52da9bdf3bce1fe399796005505e137b6338084c3f94b641ee41 (ROUTE+ASSIGN)
+    lx3mh 79702c709aabb8d13e846ffdf20bbe7c1ae188915274a380504b2119c05d3cda (+HIRE)
+    v1830 689ec7ffc923fb3f7d68f89da043612057b00eb706b7fe08fa5f2c3fd3a77993 (parity)   parent V183 80d3cfc83d99
+    v183m b7a0c399e7275092b923404504f1d4c7c712a430dac1b83324c0c16e0ab4700a
+    v183mh 89fcb524416f9f6e320885af9968f247e4a0c403efe8cdca13a92447af3421f3
+    hyb0  d546ad4f7af7064a76f1c5d8d5db9088b9563e6fb2b36fdf02f7fbde34e9a656 (parity)   parent hybrid de1f135f7973
+    hybm  e5627cfc26fba2889d86eee1b16f27e72ffd4d1a2c2f0af36357e4596df43c9d
+    hybmh 86902a3e0bee697aecb55d78ce510c1a4f178bb63a4aecd228424cfca50252e9
+[06:17] PARITY (fresh seed 15301 seat 0 vs lx1, full 720-step game, per-step digest): lx3==lx30 4d58e7971917,
+  v183==v1830 d7e637235a76, hybrid==hyb0 4d58e7971917 (this game the hybrid switched to lx3 mode, hence == lx3; the gate mode
+  is the V183 parity game). All True.
+[06:17] flag-on smoke, same game (margin vs lx1; parent in brackets): lx3m +3820 [+417], v183m +6592 [+3151],
+  hybm +3820 [+417], v183mh +6900; no optimiser exceptions; step max 0.16-0.18 s (mh 0.29 s).
+[06:31] LAUNCHED pod9 (32 cores): python batch.py out/b2 32 --only fresh --cands lx3m,v183m,hybm,lx3,v183,hybrid,lx3mh,v183mh,hybmh
+  --opps lx1,lx3,hybrid,v183,mrh, MICRO_SEED0=15501 (seeds 15501-15548, both seats) = 4320 games; parents included as candidates
+  so every m build is paired with its parent on the identical game. Pulled back to out/b2 every 150 s.
+[06:31] LAUNCHED pod10 tape judge (final29/judge, 141 top-tier games, NP 30): drive.py v183m, lx3m, hybm, then the
+  hybrid parent (no hybrid tape result existed); log /work/micro_judge.log.
+[06:32] TAPE JUDGE (pod10, 141 top-tier games) v183m: win 0.72 (V183 0.68), margin +10257 vs V183 +9436;
+  paired v183m - V183 +820 (se 90) better/worse 113/28; v183m - lx3 +3878 (se 210) 138/3; - lx1 +5933 141/0; - mrh +3743 137/4.
+[06:34] pod9 INTERIM (~100 of 480 games per candidate, seeds 15501-...; paired with the parent on identical games):
+  v183m  win 0.931 (all opps) mean +2005 | vs V183 +715 (se 166) 77/24, wins +46/-5
+  hybm   win 0.922 mean +2119 | vs hybrid +924 (se 165) 79/23, wins +47/-6
+  lx3m   win 0.676 mean +1108 | vs lx3 +1260 (se 210) 73/29, wins +33/-8
+  hire stage on top (mh vs m): v183mh +451 (se 160) 66/33 but wins +3/-7; hybmh -65 (138); lx3mh -398 (152) -> hire stage
+  not a clear win on the lx3/V183 lineage (their HIRE_DOWN_W 1.2 + CREDIT already trim hands).
+  STEP TIME on the loaded pod (32 workers + foreign load avg 14-22): parents max 0.41-0.43 s (median game max 0.27-0.30);
+  m builds max 0.51-0.57 s (median 0.46-0.48: the 0.5 s OPT_STEP_CAP is what binds); mh max 0.60-0.65 s (2 v183mh games
+  > 0.6). Laptop: 0.16-0.18 s. -> built step-safe variants with OPT_STEP_CAP 0.35: v183ms cba37327077b..., hybms
+  1d662efa3b80..., lx3ms eecdb8f10962..., v183mhs 4bf2b4fd6100..., hybmhs 78b3ab690276...; v183ms + hybms queued on pod9
+  (same 480-game grid) after the main batch (q2.sh).
+[06:34] TAPE JUDGE lx3m: win 0.59 (lx3 0.57), paired lx3m - lx3 +906 (se 96) 114/27; - lx1 +2961; - mrh +771; - V183 -2152.
+  hybm: win 0.62, margin +8081; hybm - V183 -1355 (se 198) 47/94, hybm - v183m -2175 (4/100 better): on these top-tier tapes
+  the hybrid's step-264 switch to lx3 mode fires on many games and lx3 mode is ~2.2k below V183 mode there (hybrid parent tape
+  run in progress to give the paired hybm - hybrid number).
+[06:34] TAPE JUDGE hybrid parent: win 0.58, margin +7210; paired hybm - hybrid +871 (se 99) 113/28; hybrid - V183 -2226.
+  Micro adds +0.8-0.9k on every lx2+ lineage parent on the tape judge (v183m +820, lx3m +906, hybm +871), vs +2.2k on lx1:
+  the lx2/lx3 fixes (ASSIGN3, PLAN_H1ALL, DIG_DEP, LOADFIX) had already taken part of the same slack.
+[06:37] TAPE JUDGE v183ms (step cap 0.35): win 0.72, v183ms - V183 +823 (se 90) 114/27, v183ms - v183m +3 (se 5):
+  the tighter cap costs nothing measurable. v183mh: win 0.73, v183mh - V183 +981 (se 94) 122/19, v183mh - v183m +160 (se 75)
+  87/53 (hire stage small but positive on the tapes; fresh-seed interim was +451 margin but wins +3/-7).
+[06:39] TAPE JUDGE v183mhs (hire stage, cap 0.35): v183mhs - V183 +886 (se 92) 117/24; - v183ms +62 (se 32); - v183mh -95
+  (se 77): with the tighter cap the hire trials get less time and most of the hire-stage gain goes.
+[06:59] pod9 MAIN BATCH COMPLETE (4320 fresh games, seeds 15501-15548 x both seats x opps {lx1, lx3, hybrid, v183, mrh}, 0 errors;
+  pulled to out/b2/, report out/b2/report_main.txt, summary out/b2/summary_main.json). Win rate over all 480 games per cand
+  (tie = 0.5), paired delta vs its parent on the identical game:
+    cand    win    mean   worst | vs parent        better/worse  wins gained/lost
+    v183    0.690  +1329 -10495 |
+    v183m   0.863  +2584  -4030 | +1255 (se 107)   353/127       +152/-17
+    v183mh  0.844  +2716  -6722 | +1387 (se 116)   345/135       +148/-22   (vs v183m +132 (se 94), wins +30/-39)
+    hybrid  0.594   +763 -10495 |
+    hybm    0.792  +1978  -4620 | +1215 (se 110)   347/133       +191/-28
+    hybmh   0.767  +2076  -5266 | +1313 (se 116)   330/150       +176/-25   (vs hybm +98 (se 92), wins +37/-49)
+    lx3     0.471    -89  -6021 |
+    lx3m    0.673   +912  -5423 | +1002 (se 109)   335/145       +182/-34
+    lx3mh   0.631   +961  -5266 | +1050 (se 116)   318/162       +178/-50   (vs lx3m +48 (se 79), wins +50/-70)
+  per opponent (win rate, parent -> m): v183m vs lx1 0.896->0.979, vs lx3 0.719->0.927, vs hybrid 0.604->0.812,
+    vs v183 0.500->0.708, vs mrh 0.729->0.885. hybm: vs lx1 0.812->0.927, lx3 0.615->0.885, hybrid 0.500->0.771,
+    v183 0.396->0.562, mrh 0.646->0.812. lx3m: vs lx1 0.750->0.896, lx3 0.500->0.802, hybrid 0.385->0.583, v183 0.281->0.385,
+    mrh 0.438->0.698.
+  physical (days 11-29, per game, parent -> m): work/unit-day v183 13.37->13.49, hybrid 13.45->13.58, lx3 13.57->13.72;
+    units harvested +20 / +15 / +19; care_cov +0.011 / +0.011 / +0.017; hires unchanged (m) ; PASS h20-23 +13..+16 (on this
+    lineage the gain is more work packed early -- not fewer late idles as on lx1, whose ASSIGN mismatch was the main leak).
+  hire stage (mh vs m): +48..+132 margin, but wins net -9 / -12 / -20 -> NOT recommended on fresh seeds (tape judge v183mh
+    +160 se 75, v183mhs +62 se 32: small). Keep OPT_HIRE off.
+  step time on the loaded pod: parents max 0.42-0.57 s; m 0.52-0.71 s, mh 0.65-0.73 s (OPT_STEP_CAP 0.5 binds under load);
+    's' builds (cap 0.35) max 0.44-0.45 s so far -> ship the 's' builds.
+[07:07] pod9 's' BATCH COMPLETE (v183ms, hybms: 960 games, 0 errors; all 5280 JSONs pulled to out/b2/, full report
+  out/b2/report.txt, summary out/b2/summary.json):
+    v183ms win 0.846 mean +2490 | vs v183m -94 (se 65) 178/225, wins +13/-21 | step max 0.609 (1 game > 0.6), median 0.40
+    hybms  win 0.775 mean +1702 | vs hybm  -276 (se 70) 162/246, wins +23/-31 | step max 0.620 (1 game > 0.6), median 0.38
+  (the 's' runs had the pod to themselves after the main batch, so step times are not comparable with the m runs; the 0.35 cap
+  costs ~0.1-0.3k on fresh seeds, 0 on the tape judge; the > 0.6 s outliers come from the parent's non-planning work (V183 MPC /
+  gate), which the parent itself shows under load: V183 max 0.57 s.)
+
+VERDICT round 2 (2026-09-29 07:07)
+  - Micro ports cleanly to every lineage (flag-off parity on all three parents) and is a consistent execution gain:
+    fresh 480 games vs parent: v183m +1255 (se 107), hybm +1215 (se 110), lx3m +1002 (se 109); win rate 0.690->0.863,
+    0.594->0.792, 0.471->0.673. Tape judge (141 top-tier): v183m +820 (se 90) wins 0.68->0.72, hybm +871 (se 99), lx3m +906 (se 96).
+  - Strongest candidate: build/v183m/main.py sha256 b7a0c399e7275092b923404504f1d4c7c712a430dac1b83324c0c16e0ab4700a
+    (V183 80d3cfc83d99 + OPT_ROUTE + OPT_ASSIGN, OPT_STEP_CAP 0.5): best fresh win rate (0.863; 0.708 vs V183 itself, 0.812 vs
+    hybrid) and best tape margin (+10257). Timing-safe fallback: build/v183ms/main.py cba37327077bbac8948ef4635013a14a463fa36a649953b6bd9cf876051fe067
+    (cap 0.35: tape +823 = same, fresh -94 se 65 vs v183m).
+  - The hybrid gains the same +1.2k but stays below v183m (its lx3 mode is the weaker parent on top-tier tapes: hybm - v183m -2175).
+  - OPT_HIRE: +50..+130 margin, wins net negative on fresh seeds; +160 (se 75) on the tape judge -> leave off.
+  - Engine kaggle_environments 1.32.7. No uploads made.
+
+==== MICRO v2: end-of-day hand hours (2026-09-29 17:09)
+[17:09] coordinator (recorded): mrh live as 56661366, 37-5 after 42 games (2559); hybrid 3-8 vs 2700-2900.
+[17:09] DIAGNOSIS of the late passes on the lx3/V183 lineage (diag2.py / diag3.py, fresh 15301 s0 vs lx1, days 11-28):
+  - every late PASS is one of two kinds: (a) the step a finished plan hands back (exec_unit ends the route -> PASS; 93 of 191
+    on V183, 87 of them carrying produce, 51 at h23), (b) idle-branch PASS of a carrying unit that can no longer reach the
+    shed, or an empty idle unit. Hours_left - planned cost at the first step is +2 on most unit-days (V183 and v183m alike):
+    hands with 23 h get 21-step plans, hands with 22 h get 20-step plans, i.e. the routes are genuinely short on those days,
+    not trimmed (the optimiser has no candidates left to insert).
+  - the live farm at those moments (summed over idle events at h>=18): ~2 fed-but-uncared animals and 1-3 collectable
+    fertilizers per event, ~7 unfed animals (MV_GATE off-night skips: CARE on an unfed animal banks nothing, FEED is the a1
+    trap), ~20 unwatered plants (outside their paying window: watering them earns nothing).
+  - pre-positioning for tomorrow has no value in this engine: the end-of-day refresh respawns the farmer on the default tile
+    and removes all hands (sim._eod / K._end_of_day), so where a unit stands at h23 does not carry over.
+  - the +13..16 late passes of m vs parent come with work/unit-day +0.12..0.15 and +1.0..1.3k margin: the optimiser packs the
+    same work into shorter routes (relocation cuts walking), so routes end earlier on light days; it is not lost work.
+[17:09] v2 code (micro_opt.py, flag OPT_LATE, patch hooks in agent(): after help_assign, and on the exec line):
+  late_assign(): any unit with no work left takes the best value-per-step job it can finish today from the LIVE farm:
+    CARE on a fed, uncared animal whose bonus can still pay (next production <= day 29 with cap room; value = the planner's own
+    tile_stop CARE value, i.e. the dated-gate care value in V183 mode -> gate decisions respected, 0-valued CAREs skipped),
+    COLLECT_FERTILIZER, deferrable animal HARVEST (AH_V x units x price, shed-room checked), WATER only where it pays (window
+    crop in its window, ongoing crop's production night, weed risk), ongoing-crop HARVEST (LATE_HARVEST_W). Never FEED -> no
+    sale wheat leaves the shed. Tiles still on any active route are excluded; jobs chain (the unit rescans when done).
+  late_redispatch(): the step a plan ends is re-used at once (home-drop if carrying and the shed is reachable with a step to
+    spare, else a live job started in the same step) instead of returning PASS.
+  builds (0.35 s cap by default): v183m2 aecdfb282d07..., hybm2 5a5c3d175ce8..., lx3m2 12d17cbc9e25..., mrh2 8c43968118e5...
+    (mrh + OPT_LATE, cap 0.35 with OPT_WALL 0.12 / OPT_HIRE_WALL 0.04 so the hire trials still fit), mr2 d30f21cd26db...,
+    v183l 1cf710410ab2... (OPT_LATE alone on V183). Flag-off rebuilds m02 / v18302 / lx302 / hyb02.
+[17:09] PARITY v2 flag-off (fresh 15302 seat 1 vs lx3, full game): lx1==m02 34a30e9e96da, V183==v18302 42c3673cf07f,
+  lx3==lx302 54ffdaea3ec4, hybrid==hyb02 42c3673cf07f (gate mode this game). All True.
+[17:09] SMOKE (single games; margins noisy): the live-farm scan finds only 0-3 jobs per game after the fix of a shed-room
+  bug (a full shed blocked even CARE): v183m2 15301 +6912 vs v183m +6592 (2 jobs, late passes 196 vs 210), 15302 identical;
+  mrh2 15301 +1272 / 15302 +735 vs mrh +1631 / +751 (1-3 jobs). hybm2 vs r9 +6937, lx3m2 vs r9 +6937, v183m2 vs hybm -941;
+  no optimiser exceptions; step max 0.14-0.26 s.
+  EXPECTATION: the physical change will be small. After micro v1 the planner already schedules every positive-value
+  CARE/COLLECT of the day; what is left idle at h20-23 is 1-3 steps on units whose day is short, with nothing value-positive
+  within reach (gate-zero CAREs, unfed off-night animals, out-of-window watering). The remaining labour lever is the hand
+  count on those light days (OPT_HIRE, mrh), not late jobs.
+
+READY FOR BATCH (micro v2, 2026-09-29 17:09)
+  sync to the pod (from research/claude/2900/agents/micro):
+    rsync -az -R -e "ssh -i ~/.ssh/id_ed25519 -p <PORT>" batch.py batch_report.py smoke.py analyse_lab.py run_batch_v2.sh \
+      build/v183m2 build/hybm2 build/lx3m2 build/mrh2 build/v183ms build/hybms build/lx3ms build/mrh build/v183m build/hybm \
+      root@<HOST>:/work/kaggriculture/research/claude/2900/agents/micro/
+    (r9 = agents/final/build/r9/main.py, V183 / hybrid / lx3 parents must exist on the pod at their repo paths)
+  fresh batch (5376 games, seeds 15801-15848 both seats, candidates v2 + their v1 baselines, opponents
+  {v183m, hybm, mrh, v183, hybrid, lx3, r9}; ~45 min on 32 cores):
+    cd /work/kaggriculture && export PATH=/opt/venv/bin:$PATH && nohup bash research/claude/2900/agents/micro/run_batch_v2.sh \
+      research/claude/2900/agents/micro/out/b3 32 > /work/micro_b3.log 2>&1 &
+  report: research/claude/2900/agents/micro/out/b3/report.txt (win rate first; pairs v183m2-v183ms, hybm2-hybms, lx3m2-lx3ms,
+  mrh2-mrh; phys incl. pass_h20_23, care_cov).
+  tape judge (141 top-tier games, final29/judge):
+    cd /work/kaggriculture/research/claude/2900/agents/final29/judge && export PATH=/opt/venv/bin:$PATH PY=/opt/venv/bin/python
+    M=/work/kaggriculture/research/claude/2900/agents/micro/build
+    for t in v183m2 hybm2 lx3m2 mrh2 hybms lx3ms; do python drive.py $M/$t/main.py $t tape 30; done
+    python table.py tape v183m2 v183ms v183m v183; python table.py tape hybm2 hybms hybm hybrid; python table.py tape lx3m2 lx3ms lx3m lx3; python table.py tape mrh2 mrh lx1

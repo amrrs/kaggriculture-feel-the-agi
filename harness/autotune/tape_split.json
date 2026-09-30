@@ -1,0 +1,621 @@
+{
+"search": [
+{
+"ep": 114763214,
+"seat": 1,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115422295,
+"seat": 1,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115425939,
+"seat": 0,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115427471,
+"seat": 1,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115428651,
+"seat": 0,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115381978,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115387741,
+"seat": 1,
+"team": "DECEM"
+},
+{
+"ep": 115392457,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115413582,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115417660,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115422516,
+"seat": 1,
+"team": "DECEM"
+},
+{
+"ep": 115424410,
+"seat": 1,
+"team": "DECEM"
+},
+{
+"ep": 115428924,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 114178065,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115381978,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115413553,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115417659,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115420975,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115422655,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115424138,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115425957,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115428414,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115428924,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115430334,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115390459,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115395045,
+"seat": 0,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115408974,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115413164,
+"seat": 0,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115413582,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115425953,
+"seat": 0,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115425958,
+"seat": 0,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115430334,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115411632,
+"seat": 1,
+"team": "Majkel1337"
+},
+{
+"ep": 115413576,
+"seat": 0,
+"team": "Majkel1337"
+},
+{
+"ep": 115422516,
+"seat": 0,
+"team": "Majkel1337"
+},
+{
+"ep": 115422656,
+"seat": 1,
+"team": "Majkel1337"
+},
+{
+"ep": 115428247,
+"seat": 0,
+"team": "Majkel1337"
+},
+{
+"ep": 115431961,
+"seat": 1,
+"team": "Majkel1337"
+},
+{
+"ep": 115432715,
+"seat": 1,
+"team": "Majkel1337"
+},
+{
+"ep": 114817142,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115387741,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115408974,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115418128,
+"seat": 1,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115424138,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115425939,
+"seat": 1,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115425957,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115428247,
+"seat": 1,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115431962,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115411632,
+"seat": 0,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115413553,
+"seat": 0,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115417660,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115418160,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115420975,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115422937,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115425953,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115427326,
+"seat": 0,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115387429,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115387712,
+"seat": 0,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115390715,
+"seat": 0,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115413164,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115419249,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115422295,
+"seat": 0,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115423835,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115427458,
+"seat": 0,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 114748182,
+"seat": 1,
+"team": "Yizhou"
+},
+{
+"ep": 115418128,
+"seat": 0,
+"team": "Yizhou"
+},
+{
+"ep": 115424410,
+"seat": 0,
+"team": "Yizhou"
+},
+{
+"ep": 115424413,
+"seat": 1,
+"team": "Yizhou"
+},
+{
+"ep": 115428893,
+"seat": 1,
+"team": "Yizhou"
+},
+{
+"ep": 115404455,
+"seat": 0,
+"team": "Zenith"
+},
+{
+"ep": 115413576,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 115418160,
+"seat": 0,
+"team": "Zenith"
+},
+{
+"ep": 115422656,
+"seat": 0,
+"team": "Zenith"
+},
+{
+"ep": 115423940,
+"seat": 0,
+"team": "Zenith"
+},
+{
+"ep": 115427326,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 115427468,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 115429680,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 114937790,
+"seat": 0,
+"team": "monsaraida"
+},
+{
+"ep": 115387712,
+"seat": 1,
+"team": "monsaraida"
+},
+{
+"ep": 115427468,
+"seat": 0,
+"team": "monsaraida"
+},
+{
+"ep": 115431835,
+"seat": 1,
+"team": "monsaraida"
+},
+{
+"ep": 115431840,
+"seat": 1,
+"team": "monsaraida"
+},
+{
+"ep": 114944321,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115395045,
+"seat": 1,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115422437,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115423835,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115424413,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115427458,
+"seat": 1,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115431756,
+"seat": 1,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115431833,
+"seat": 1,
+"team": "tetsuya & yuanzhe & guoqin"
+}
+],
+"holdout": [
+{
+"ep": 115423940,
+"seat": 1,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115430326,
+"seat": 0,
+"team": "Anton Tikhonov"
+},
+{
+"ep": 115390459,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115422437,
+"seat": 1,
+"team": "DECEM"
+},
+{
+"ep": 115431833,
+"seat": 0,
+"team": "DECEM"
+},
+{
+"ep": 115392457,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115422436,
+"seat": 0,
+"team": "DSM"
+},
+{
+"ep": 115425958,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115430340,
+"seat": 1,
+"team": "DSM"
+},
+{
+"ep": 115404455,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115422436,
+"seat": 1,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115430340,
+"seat": 0,
+"team": "M & M & P & Q"
+},
+{
+"ep": 115416427,
+"seat": 1,
+"team": "Majkel1337"
+},
+{
+"ep": 115428697,
+"seat": 0,
+"team": "Majkel1337"
+},
+{
+"ep": 115390715,
+"seat": 1,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115425513,
+"seat": 0,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115430326,
+"seat": 1,
+"team": "Unknown Mother-Goose"
+},
+{
+"ep": 115417659,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115422655,
+"seat": 1,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115428893,
+"seat": 0,
+"team": "Vadim Vasilenko"
+},
+{
+"ep": 115390479,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115420788,
+"seat": 0,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115428414,
+"seat": 1,
+"team": "Victor @ Tufa Labs"
+},
+{
+"ep": 115420788,
+"seat": 1,
+"team": "Yizhou"
+},
+{
+"ep": 115428903,
+"seat": 0,
+"team": "Yizhou"
+},
+{
+"ep": 115413806,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 115425513,
+"seat": 1,
+"team": "Zenith"
+},
+{
+"ep": 115431752,
+"seat": 0,
+"team": "Zenith"
+},
+{
+"ep": 115427408,
+"seat": 1,
+"team": "monsaraida"
+},
+{
+"ep": 115431863,
+"seat": 0,
+"team": "monsaraida"
+},
+{
+"ep": 115416427,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115426593,
+"seat": 1,
+"team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 115431835,
+"seat": 0,
+"team": "tetsuya & yuanzhe & guoqin"
+}
+]
+}

@@ -1,0 +1,21 @@
+launched
+done
+farm2945_4f3ca95d: n=123 wins 54 (44%) margin +11862 (se 3816) own 111266 opp 99404 | intact 82/123 (67%) intact-only margin -10831 (se 2052) wins 16 | peak step 0.327s, steps>0.6s 0, non-DONE 0
+v183ms: n=123 wins 64 (52%) margin +19208 (se 3850) own 119934 opp 100725 | intact 84/123 (68%) intact-only margin -1948 (se 1689) wins 28 | peak step 0.395s, steps>0.6s 0, non-DONE 0
+PAIRED farm2945_4f3ca95d - v183ms: n=123 delta -7347 (se 4604) better/worse 41/82 wins 64->54 | own -8668 opp -1321 | both-intact n=68 delta -7293 (se 2594)
+  paired worst 5: [(-191271, 115422295, 'Anton Tikhonov'), (-167687, 115423940, 'Anton Tikhonov'), (-144784, 115427471, 'Anton Tikhonov'), (-126765, 115428651, 'Anton Tikhonov'), (-119373, 115425513, 'Zenith')]
+  rank team                            n wins  margin intact  paired  b-int
+   1 M & M & P & Q                   11    5  +24078      6  +22476 +12996
+   2 DSM                             15    8  +15440     12   +5537  +3040
+   3 DECEM                           11   10  +64541      1  +14094      -
+   4 Vadim Vasilenko                 11    4   +5001      8   -7639  -3393
+   5 Victor @ Tufa Labs              11    4   -3249      8  -14144 -15155
+   6 Unknown Mother-Goose            12    3   -6359     11   +2065  -3180
+   7 Anton Tikhonov                   7    2   -3813      5 -108446 -22022
+   8 Yizhou                           7    6  +47347      1   +2997      -
+   9 Majkel1337                       9    1   -9512      8  -24420 -20166
+  10 tetsuya & yuanzhe & guoqin      11    3   -4435      9   -9540 -14053
+  11 monsaraida                       7    2   +8617      6  -13598 -26328
+  12 Zenith                          11    6   +7178      7   -1460  -4321
+  worst 5 margins: [(-41979, 115428651, 'Anton Tikhonov', 'I'), (-37254, 115425957, 'Unknown Mother', 'I'), (-35370, 115431962, 'Unknown Mother', 'I'), (-35066, 115424413, 'tetsuya & yuan', 'I'), (-31440, 115428893, 'Vadim Vasilenk', 'I')]
+  lowest tape keep (opp_frac): [(0.0, 115422516, 'DECEM'), (0.1775, 114937790, 'monsaraida'), (0.4097, 115390459, 'M & M & P & Q'), (0.4618, 115428903, 'Yizhou'), (0.462, 115431756, 'tetsuya & yuan')]

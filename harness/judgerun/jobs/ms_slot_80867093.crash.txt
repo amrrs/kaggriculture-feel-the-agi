@@ -1,0 +1,4 @@
+ms_slot_80867093 /work/jr/cands/ms_slot_80867093/main.py V183 /work/jr/cands/V183/main.py 17801 0
+ms_slot_80867093 /work/jr/cands/ms_slot_80867093/main.py V183 /work/jr/cands/V183/main.py 17801 1
+ms_slot_80867093 /work/jr/cands/ms_slot_80867093/main.py V183 /work/jr/cands/V183/main.py 17802 0
+ms_slot_80867093 /work/jr/cands/ms_slot_80867093/main.py V183 /work/jr/cands/V183/main.py 17802 1

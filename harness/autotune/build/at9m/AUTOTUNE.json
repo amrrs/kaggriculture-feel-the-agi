@@ -1,0 +1,25 @@
+{
+ "cid": "g009m",
+ "vals": {
+  "HIRE_DOWN_W": 1.3232,
+  "HAND_W": 0.8724,
+  "SQ_W": 1.5487,
+  "SQ_DECAY": 0.2911,
+  "SQ_SPLIT": 0.6013,
+  "SQ_START_DAY": 14,
+  "MPC_W": 1.1862,
+  "MPC_H": 23,
+  "SELL0_MAX": 2,
+  "CARE_W": 0.8341,
+  "FERT_WHEAT_MAXP": 170.0423,
+  "OVERFLOW_TARGET": 97,
+  "LATE_HARVEST_W": 0.1401,
+  "AH_V": 0.1784,
+  "ALLOC_MARGIN": 125.1918,
+  "STRAW_AB_x": 0.9111,
+  "LATE_START": 21,
+  "TOM_FIRST_DAY": 15,
+  "TOM_OPP_MARGIN": 0.5859,
+  "AMAX_TOM": 20
+ }
+}

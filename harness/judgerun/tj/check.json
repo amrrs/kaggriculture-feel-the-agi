@@ -1,0 +1,492 @@
+[
+{
+"ep": 114141959,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "lx3",
+"sub": 56584428,
+"rec": 119402.0,
+"rec_opp": 122935.0,
+"opp_team": "Christoffer Thimsen"
+},
+{
+"ep": 114160767,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 112017.0,
+"rec_opp": 120738.0,
+"opp_team": "\u6446\u70c2\u5c0f\u5206\u961f \ud83c\udfc6"
+},
+{
+"ep": 114178065,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 103359.0,
+"rec_opp": 116215.0,
+"opp_team": "DSM"
+},
+{
+"ep": 114218068,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 91894.0,
+"rec_opp": 80464.0,
+"opp_team": "Farmers Is All You Need \ud83c\udfc6"
+},
+{
+"ep": 114269111,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "lx3",
+"sub": 56584428,
+"rec": 92459.0,
+"rec_opp": 83041.0,
+"opp_team": "Christoffer Thimsen"
+},
+{
+"ep": 114283451,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 120314.0,
+"rec_opp": 128623.0,
+"opp_team": "\u6709\u8fa3\u6761\u6709\u6743"
+},
+{
+"ep": 114318650,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 103186.0,
+"rec_opp": 105721.0,
+"opp_team": "Smackaveli"
+},
+{
+"ep": 114329076,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "lx3",
+"sub": 56584428,
+"rec": 103244.0,
+"rec_opp": 94312.0,
+"opp_team": "Gordeev Max"
+},
+{
+"ep": 114748119,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 85480.0,
+"rec_opp": 108783.0,
+"opp_team": "akmr"
+},
+{
+"ep": 114748182,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 146988.0,
+"rec_opp": 140203.0,
+"opp_team": "Yizhou"
+},
+{
+"ep": 114755532,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 92713.0,
+"rec_opp": 101494.0,
+"opp_team": "TKNP"
+},
+{
+"ep": 114757138,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 119753.0,
+"rec_opp": 131032.0,
+"opp_team": "My second life"
+},
+{
+"ep": 114763214,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 107336.0,
+"rec_opp": 107896.0,
+"opp_team": "Anton Tikhonov"
+},
+{
+"ep": 114763263,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 114537.0,
+"rec_opp": 123570.0,
+"opp_team": "atsushi11o7"
+},
+{
+"ep": 114768900,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 95326.0,
+"rec_opp": 112266.0,
+"opp_team": "My second life"
+},
+{
+"ep": 114771680,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 93526.0,
+"rec_opp": 115494.0,
+"opp_team": "My second life"
+},
+{
+"ep": 114785230,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 125905.0,
+"rec_opp": 134006.0,
+"opp_team": "Arda Ceylan"
+},
+{
+"ep": 114789743,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 105734.0,
+"rec_opp": 110311.0,
+"opp_team": "MAC"
+},
+{
+"ep": 114794098,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 97585.0,
+"rec_opp": 111177.0,
+"opp_team": "MAC"
+},
+{
+"ep": 114801427,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 133426.0,
+"rec_opp": 123385.0,
+"opp_team": "feles99"
+},
+{
+"ep": 114802506,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 140494.0,
+"rec_opp": 162126.0,
+"opp_team": "My second life"
+},
+{
+"ep": 114814388,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 103422.0,
+"rec_opp": 109709.0,
+"opp_team": "TheEggman"
+},
+{
+"ep": 114817142,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 79705.0,
+"rec_opp": 96924.0,
+"opp_team": "Unknown Mother-Goose"
+},
+{
+"ep": 114817723,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 103871.0,
+"rec_opp": 95778.0,
+"opp_team": "feles99"
+},
+{
+"ep": 114841133,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 129446.0,
+"rec_opp": 153119.0,
+"opp_team": "mtmr_s1"
+},
+{
+"ep": 114860101,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 79891.0,
+"rec_opp": 82479.0,
+"opp_team": "Arda Ceylan"
+},
+{
+"ep": 114864464,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56641767,
+"rec": 107501.0,
+"rec_opp": 107024.0,
+"opp_team": "Christoffer Thimsen"
+},
+{
+"ep": 114887589,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 142103.0,
+"rec_opp": 140533.0,
+"opp_team": "Smackaveli"
+},
+{
+"ep": 114933683,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 74057.0,
+"rec_opp": 84579.0,
+"opp_team": "Just A game on your lips"
+},
+{
+"ep": 114937790,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 109069.0,
+"rec_opp": 113565.0,
+"opp_team": "monsaraida"
+},
+{
+"ep": 114944321,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 106607.0,
+"rec_opp": 124668.0,
+"opp_team": "tetsuya & yuanzhe & guoqin"
+},
+{
+"ep": 114946346,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56641767,
+"rec": 65135.0,
+"rec_opp": 68298.0,
+"opp_team": "Fourth Quadrant"
+},
+{
+"ep": 115420232,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 134175.0,
+"rec_opp": 119956.0,
+"opp_team": "saitamad"
+},
+{
+"ep": 115421386,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 79184.0,
+"rec_opp": 64637.0,
+"opp_team": "senkin13"
+},
+{
+"ep": 115421745,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 90227.0,
+"rec_opp": 96793.0,
+"opp_team": "shyjin"
+},
+{
+"ep": 115421746,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56686499,
+"rec": 142710.0,
+"rec_opp": 139706.0,
+"opp_team": "HayatoFujihara"
+},
+{
+"ep": 115422056,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 119035.0,
+"rec_opp": 102268.0,
+"opp_team": "Agentculture"
+},
+{
+"ep": 115423295,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 82634.0,
+"rec_opp": 69216.0,
+"opp_team": "tomfng"
+},
+{
+"ep": 115424827,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 93519.0,
+"rec_opp": 88905.0,
+"opp_team": "fshindo"
+},
+{
+"ep": 115424884,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56686499,
+"rec": 122265.0,
+"rec_opp": 146949.0,
+"opp_team": "Azat Akhtyamov"
+},
+{
+"ep": 115426357,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 113618.0,
+"rec_opp": 111968.0,
+"opp_team": "daulettoibazar"
+},
+{
+"ep": 115427393,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 90092.0,
+"rec_opp": 81887.0,
+"opp_team": "\u6211\u5c0f\u6817\u5e3d\u8981\u5a36\u85e4\u6b63\u8fdb\u884c\u66f2\uff01\uff01\uff01\ud83d\udc8d"
+},
+{
+"ep": 115427880,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 108208.0,
+"rec_opp": 101581.0,
+"opp_team": "ready or not here i come"
+},
+{
+"ep": 115429404,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 79406.0,
+"rec_opp": 85537.0,
+"opp_team": "high frequency farming"
+},
+{
+"ep": 115430931,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 132701.0,
+"rec_opp": 69720.0,
+"opp_team": "Bohann Wang"
+},
+{
+"ep": 115430953,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "V183",
+"sub": 56686499,
+"rec": 103175.0,
+"rec_opp": 101999.0,
+"opp_team": "madmax0404"
+},
+{
+"ep": 115432485,
+"cand_seat": 0,
+"tape_seat": 1,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 80326.0,
+"rec_opp": 88193.0,
+"opp_team": "Farmcore"
+},
+{
+"ep": 115432516,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "v183ms",
+"sub": 56686494,
+"rec": 82016.0,
+"rec_opp": 75611.0,
+"opp_team": "shyjin"
+},
+{
+"ep": 115432929,
+"cand_seat": 1,
+"tape_seat": 0,
+"group": "V183",
+"sub": 56686499,
+"rec": 95739.0,
+"rec_opp": 100185.0,
+"opp_team": "AI\u662f\u6211\u7684\u8c46\u5305"
+}
+]

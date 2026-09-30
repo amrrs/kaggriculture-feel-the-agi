@@ -1,0 +1,26 @@
+{
+ "cid": "g010c04",
+ "vals": {
+  "HIRE_DOWN_W": 1.318,
+  "HAND_W": 0.9274,
+  "SQ_W": 1.5284,
+  "SQ_DECAY": 0.3651,
+  "SQ_SPLIT": 0.5836,
+  "SQ_START_DAY": 14,
+  "MPC_W": 1.3305,
+  "MPC_H": 20,
+  "SELL0_MAX": 2,
+  "CARE_W": 0.7273,
+  "FERT_WHEAT_MAXP": 161.3458,
+  "WHEAT_BUFFER": 2,
+  "OVERFLOW_TARGET": 98,
+  "LATE_HARVEST_W": 0.1315,
+  "AH_V": 0.0857,
+  "ALLOC_MARGIN": 108.4052,
+  "STRAW_AB_x": 0.8908,
+  "LATE_START": 20,
+  "TOM_FIRST_DAY": 15,
+  "TOM_OPP_MARGIN": 0.6721,
+  "AMAX_TOM": 22
+ }
+}

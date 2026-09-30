@@ -1,0 +1,20 @@
+done
+v183ms: n=123 wins 64 (52%) margin +19208 (se 3850) own 119934 opp 100725 | intact 84/123 (68%) intact-only margin -1948 (se 1689) wins 28 | peak step 0.395s, steps>0.6s 0, non-DONE 0
+V183: n=123 wins 62 (50%) margin +18530 (se 3868) own 119754 opp 101225 | intact 86/123 (70%) intact-only margin -1663 (se 1882) wins 28 | peak step 0.370s, steps>0.6s 0, non-DONE 0
+PAIRED v183ms - V183: n=123 delta +679 (se 85) better/worse 101/22 wins 62->64 | own +179 opp -500 | both-intact n=84 delta +737 (se 97)
+  paired worst 5: [(-2596, 115390459, 'M & M & P & Q'), (-1574, 115428697, 'Majkel1337'), (-1348, 115428414, 'DSM'), (-955, 115432715, 'Majkel1337'), (-869, 115417660, 'DECEM')]
+  rank team                            n wins  margin intact  paired  b-int
+   1 M & M & P & Q                   11    2   +1602      8    +694  +1226
+   2 DSM                             15    8   +9904     12    +741   +687
+   3 DECEM                           11    8  +50447      4    +232   +268
+   4 Vadim Vasilenko                 11    7  +12640      7    +672   +668
+   5 Victor @ Tufa Labs              11    6  +10895      9    +678   +873
+   6 Unknown Mother-Goose            12    1   -8424     11   +1030   +708
+   7 Anton Tikhonov                   7    7 +104633      2   +1295  +2224
+   8 Yizhou                           7    7  +44350      1    +586   +475
+   9 Majkel1337                       9    8  +14908      7    +546   +408
+  10 tetsuya & yuanzhe & guoqin      11    4   +5105      9    +710   +790
+  11 monsaraida                       7    4  +22215      6    +549   +528
+  12 Zenith                          11    2   +8637      8    +477   +553
+  worst 5 margins: [(-30211, 115430340, 'M & M & P & Q', 'I'), (-20417, 115408974, 'M & M & P & Q', 'I'), (-18673, 115431962, 'Unknown Mother', 'x'), (-18098, 115422937, 'Vadim Vasilenk', 'I'), (-17869, 115425958, 'M & M & P & Q', 'I')]
+  lowest tape keep (opp_frac): [(0.0018, 115427471, 'Anton Tikhonov'), (0.0831, 115422295, 'Anton Tikhonov'), (0.2088, 115423940, 'Anton Tikhonov'), (0.4309, 115425513, 'Zenith'), (0.4859, 115430326, 'Anton Tikhonov')]

@@ -1,0 +1,14 @@
+Kaggriculture Python route agent
+
+This submission includes action tapes and a Python translation derived from
+Three-Day Shop Router by Yusuke Hayashi (Kaggle username yhay81):
+https://www.kaggle.com/code/yhay81/three-day-shop-router
+Retrieved 2026-09-05. Original source files identify their license as Apache-2.0.
+Original notebook, C++ policy, budget guard, and action tape are preserved under
+experiments/public/router in the development workspace.
+
+Changes in this version: Python-only portable runtime, configurable routing and
+budget controls, final-turn inventory liquidation, and optional earlier sales
+of already-stored produce, including capacity-aware projection of same-turn
+worker drops into storage. These changes were evaluated in local paired games.
+No original author endorsement is implied.

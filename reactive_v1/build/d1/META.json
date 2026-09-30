@@ -1,0 +1,1 @@
+{"base": "rx.py", "P": {"DROP_MIN": 60, "DROP_K": 0.25, "ONWAY_MIN": 0.5, "HG0": 2.3, "HG1": 2.0, "ADMIT_K": 0.45}, "sha256": "2b7a6b850042de1b9804ad08e791bce2340183443e935af8f4f1bc1f80011e4e"}

@@ -1,0 +1,31 @@
+96 jobs
+24 jobs
+120
+123
+rv1d@V183: n=24 win=0.0% margin=-28846 (1403) own=88899 opp=117745 worst=-39629 peak=0.323s err=0 | paired vs v183ms@V183: margin -29783 (1396) own -18137 (1790) n=24 better=0
+   rev own/opp k (units): WHEAT 13.7/49.3 (333/1340), CARRO 1.6/2.3 (32/48), TOMAT 6.4/0.4 (86/4), STRAW 32.4/36.4 (210/261), MELON 12.9/15.2 (62/72), EGG 5.1/9.6 (108/209), MILK 20.0/24.2 (188/208), WOOL 20.5/20.3 (159/159), FERTI 10.7/20.7 (209/346)
+   spend own/opp k: BUY_ANIMAL 9.7/8.6, BUY_PRODUCT 11.4/40.4, BUY_SEED 6.3/6.5
+   coverage d11-28: fed 0.83 cared 0.84 watered 0.59 | animals/day 17.2 plants/day 49.9 | idle 5 moves 125 unit-steps/day
+rv1d@at12m: n=24 win=0.0% margin=-31987 (1598) own=88219 opp=120206 worst=-44686 peak=0.377s err=0
+   rev own/opp k (units): WHEAT 13.5/50.2 (333/1372), CARRO 1.6/2.8 (32/60), TOMAT 6.3/0.5 (85/5), STRAW 32.4/36.0 (206/255), MELON 12.9/15.2 (62/72), EGG 5.2/9.8 (112/214), MILK 20.1/24.6 (186/207), WOOL 19.8/20.9 (155/160), FERTI 10.8/20.6 (207/347)
+   spend own/opp k: BUY_ANIMAL 9.9/8.6, BUY_PRODUCT 11.2/40.3, BUY_SEED 6.3/6.5
+   coverage d11-28: fed 0.83 cared 0.84 watered 0.59 | animals/day 16.9 plants/day 50.4 | idle 5 moves 126 unit-steps/day
+rv1d@self: n=24 win=33.3% margin=+0 (2957) own=97913 opp=97913 worst=-48959 peak=0.209s err=0
+   rev own/opp k (units): WHEAT 10.6/10.6 (212/212), CARRO 0.8/0.8 (13/13), TOMAT 4.9/4.9 (71/71), STRAW 39.0/39.0 (215/215), MELON 11.3/11.3 (49/49), EGG 5.5/5.5 (108/108), MILK 29.4/29.4 (181/181), WOOL 21.3/21.3 (130/130), FERTI 11.9/11.9 (207/207)
+   spend own/opp k: BUY_ANIMAL 11.6/11.6, BUY_PRODUCT 12.8/12.8, BUY_SEED 5.7/5.7
+   coverage d11-28: fed 0.83 cared 0.85 watered 0.57 | animals/day 18.4 plants/day 45.3 | idle 8 moves 122 unit-steps/day
+rv1d@v183ms: n=24 win=0.0% margin=-31185 (1666) own=87617 opp=118802 worst=-45783 peak=0.446s err=0
+   rev own/opp k (units): WHEAT 14.2/49.6 (347/1355), CARRO 1.6/2.4 (32/49), TOMAT 6.5/0.4 (88/4), STRAW 31.6/36.5 (206/266), MELON 12.9/15.2 (62/72), EGG 5.2/9.8 (111/212), MILK 20.0/24.3 (185/208), WOOL 19.7/20.9 (157/162), FERTI 10.7/20.8 (204/348)
+   spend own/opp k: BUY_ANIMAL 10.2/8.6, BUY_PRODUCT 11.2/40.6, BUY_SEED 6.3/6.5
+   coverage d11-28: fed 0.84 cared 0.85 watered 0.59 | animals/day 16.8 plants/day 50.6 | idle 5 moves 126 unit-steps/day
+v183ms@V183: n=24 win=75.0% margin=+937 (295) own=107036 opp=106099 worst=-2324 peak=0.799s err=0
+   rev own/opp k (units): WHEAT 43.5/43.3 (1308/1302), CARRO 3.2/3.1 (74/70), TOMAT 1.6/1.6 (13/14), STRAW 35.0/34.8 (266/267), MELON 14.6/14.6 (73/73), EGG 8.2/8.1 (179/177), MILK 19.1/18.9 (203/201), WOOL 21.6/21.6 (163/161), FERTI 19.1/18.8 (326/315)
+   spend own/opp k: BUY_ANIMAL 8.3/8.3, BUY_PRODUCT 39.0/38.7, BUY_SEED 6.7/6.7
+rv1d@V183: per game plants weeded 11.5 (value ~590), animals escaped 7.0
+rv1d@at12m: per game plants weeded 12.5 (value ~601), animals escaped 7.0
+rv1d@self: per game plants weeded 19.2 (value ~1247), animals escaped 10.0
+rv1d@v183ms: per game plants weeded 13.7 (value ~661), animals escaped 7.8
+tj_rv1d: n=123 wins 27 (22%) margin -20802 (se 3006) own 93841 opp 114643 | intact 102/123 (83%) intact-only margin -32417 (se 1807) wins 7 | peak step 0.554s, steps>0.6s 0, non-DONE 0
+v183ms: n=123 wins 64 (52%) margin +19215 (se 3849) own 119938 opp 100723 | intact 84/123 (68%) intact-only margin -1937 (se 1689) wins 28 | peak step 0.434s, steps>0.6s 0, non-DONE 0
+PAIRED tj_rv1d - v183ms: n=123 delta -40017 (se 4461) better/worse 11/112 wins 64->27 | own -26097 opp +13920 | both-intact n=77 delta -31289 (se 1913)
+  paired worst 5: [(-218514, 115390459, 'M & M & P & Q'), (-201439, 115422295, 'Anton Tikhonov'), (-198110, 115427468, 'monsaraida'), (-191545, 115427471, 'Anton Tikhonov'), (-191335, 115423940, 'Anton Tikhonov')]

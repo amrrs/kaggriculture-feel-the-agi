@@ -1,0 +1,21 @@
+launched
+done
+ms_sr_4ab225fb: n=123 wins 64 (52%) margin +18977 (se 3834) own 119448 opp 100471 | intact 84/123 (68%) intact-only margin -2089 (se 1678) wins 28 | peak step 0.616s, steps>0.6s 1, non-DONE 0
+v183ms: n=123 wins 64 (52%) margin +19208 (se 3850) own 119934 opp 100725 | intact 84/123 (68%) intact-only margin -1948 (se 1689) wins 28 | peak step 0.395s, steps>0.6s 0, non-DONE 0
+PAIRED ms_sr_4ab225fb - v183ms: n=123 delta -231 (se 49) better/worse 39/84 wins 64->64 | own -485 opp -255 | both-intact n=84 delta -141 (se 45)
+  paired worst 5: [(-3852, 115381978, 'DECEM'), (-1783, 115427326, 'Vadim Vasilenk'), (-1559, 115427468, 'monsaraida'), (-1415, 115427458, 'Victor @ Tufa '), (-1380, 115428414, 'Victor @ Tufa ')]
+  rank team                            n wins  margin intact  paired  b-int
+   1 M & M & P & Q                   11    2   +1593      8      -8    +14
+   2 DSM                             15    8   +9627     12    -276   -251
+   3 DECEM                           11    8  +49746      4    -702    -94
+   4 Vadim Vasilenko                 11    7  +12295      7    -344   -267
+   5 Victor @ Tufa Labs              11    6  +10650      9    -245   -145
+   6 Unknown Mother-Goose            12    1   -8516     11     -92    -98
+   7 Anton Tikhonov                   7    7 +104556      2     -78    -78
+   8 Yizhou                           7    7  +44168      1    -183   -358
+   9 Majkel1337                       9    8  +14849      7     -59    +14
+  10 tetsuya & yuanzhe & guoqin      11    4   +5039      9     -66    -72
+  11 monsaraida                       7    4  +21876      6    -339   -136
+  12 Zenith                          11    2   +8329      8    -309   -308
+  worst 5 margins: [(-29905, 115430340, 'M & M & P & Q', 'I'), (-20338, 115408974, 'M & M & P & Q', 'I'), (-18699, 115431962, 'Unknown Mother', 'x'), (-18604, 115430340, 'DSM', 'I'), (-18001, 115381978, 'DSM', 'I')]
+  lowest tape keep (opp_frac): [(0.0018, 115427471, 'Anton Tikhonov'), (0.0831, 115422295, 'Anton Tikhonov'), (0.2087, 115423940, 'Anton Tikhonov'), (0.4285, 115425513, 'Zenith'), (0.4844, 115430326, 'Anton Tikhonov')]
