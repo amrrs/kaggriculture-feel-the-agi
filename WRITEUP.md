@@ -1,36 +1,35 @@
-# Kaggriculture — team "feel the agi": approach, what we learned, what failed
+# Kaggriculture: what we built, what we learned, what didn't work
 
-Final submissions: **g012m** (56707760) and **g010c04** (56718703). Both are the same agent with two different tuned parameter vectors.
+Team "feel the agi". Final submissions: g012m and g010c04. Same agent, two different parameter settings. Code, harness and all the research notes are on GitHub (link below).
 
-## The agent in one paragraph
+## The agent
 
-A single-file Python agent (standard library + numpy, ~0.4 s worst step). Days 0–10 follow a **shop-keyed library of recorded openings** built from public replays of strong agents (branching on the shops unlocked at days 3 and 6, with an "evening rescue" that repairs the plan when cash or tiles drift). From day 11 a **reactive executor** takes over: it re-plans the farm every morning from the observation only (visible shops, market inventory and prices, the rival's tiles and recovered sales, own cash/shed), allocates tiles and herd by a per-product market model, sizes the daily hire count against the routed value of the work, and routes 10–13 workers with a small prize-collecting VRP local search (the "micro" layer). Market orders sell on arrival at the shed, never hold, keep the shed under the 100-item cap, and put the product most exposed to a rival lot in slot 1 of the order list (orders are processed in lockstep, slot by slot). The final parameter vectors were found by **CMA-ES over 25 behavioural knobs**, scored against 123 recorded games of the current top-12 teams plus fresh-seed games against our own previous bots, and validated on untouched seeds and held-out tapes.
+It's one Python file. The first ten days follow a small library of recorded openings taken from public replays of strong agents, branching on which shops unlock on days 3 and 6, with a repair routine that kicks in when cash or tiles drift from the plan. From day 11 a reactive executor takes over. Every morning it re-plans the farm from what it can see: the shops, market inventory and prices, the rival's tiles and what the rival sold (you can recover that exactly from the inventory change), and its own cash and shed. It decides tiles and herd from a per-product market model, picks how many hands to hire by comparing the value of the routed work against the wage, and routes the workers with a small vehicle-routing local search. Market orders are simple on purpose: sell when produce reaches the shed, never hold for a better price, keep the shed under the 100-item cap, and put whatever product the rival is about to dump into slot 1 of the order list, because orders are processed slot by slot in lockstep.
 
-## Results (offline, paired, untouched seeds)
+The last thing we did was stop hand-tuning it. We ran CMA-ES over 25 of its behavioural settings, scoring each candidate against 123 recorded games of the current top-12 teams plus fresh games against our own earlier bots, then checked the winners on seeds and tapes the search had never seen. That found about +0.9k coins per game over our previous best, mostly from planting tomatoes earlier and selling premium goods earlier in the day.
 
-| g012m vs | margin / game | win rate |
-|---|---|---|
-| previous best (v183ms) | +0.94k (480 games) | 71% |
-| 123 top-12 recorded games | +0.66k | 68 wins vs 64 |
-| our lx3 line (live 2714 on 27 Sep) | +4.5k | 97% |
+## Where it landed
 
-Live the line converged around 2650–2700; the top 10 sat at 2840+.
+Offline, paired on untouched seeds, g012m beats our previous best 71% of the time and edges the top-12 tapes 68 wins to 64. Live, this family settles around 2650 to 2700. The top 10 was 2840 and up. So: a solid mid-table agent, not a prize one.
 
-## What we learned about the game
+## What we learned, the hard way
 
-- **Own income is not the score.** Our farms and the top-3 farms earn the same (~105–115k coins). Games are decided by the shared market: the top teams take ~10k more from us than from each other (tomatoes we did not grow, premium goods sold before ours). Only wins count for rating.
-- **Selling is denial, holding is a gift.** Every change that held stock, kept reserves, or hired less raised our revenue a little and the rival's a lot. Drip-selling, price-threshold holds, dawn delivery loops: all negative.
-- **The shop draw is action-dependent.** The end-of-day RNG consumes one draw per empty tile (farm 0 then farm 1) before choosing a shop; one dig can change the next shop. Directed control needs the hidden 31-bit seed, which is not inferable in time. Credit to leoprovorov's public analysis.
-- **The top 3 play one integrated controller from step 1** (herd keyed on the first three shops, land on fixed days, tomatoes from day 8 in every world, 12 hands/day, no wheat churn, premium goods sold 1–2 units after each shop tick). Grafting any piece of it onto a tape+executor agent lost every time.
+Own income isn't the score. Our farms earn the same as the top three, roughly 105k to 115k coins. The games are decided in the shared market, and the top teams take about 10k more from us than they take from each other: tomatoes we never grew, so they sell 70 of them into an empty book, and premium goods that reach the market before ours. Rating only counts wins, so margin is irrelevant.
 
-## What failed (each measured, most on 48–500 paired games)
+Selling is denial, holding is a gift. Every idea that held stock back, kept a reserve, or hired fewer hands made us a little richer and the rival a lot richer. Drip selling, price thresholds, dawn delivery loops, all negative.
 
-Fourth quadrant (−4k), tomato wave on our executor (−6k), top-3 opening tree on our executor (−8 to −14k), from-scratch reactive controller after one day (−30k), transformer imitation of top replays (multi-step consistency 4%), macro PPO self-play (~rank 55), rival-sale forecasting/racing, drip metering (−4.5k), leader-layout copying, CEM over macro programmes, higher micro search budgets (converged), single-knob sweeps (46 of 77 knobs never change an action).
+The shops aren't as random as they look. At the end of each day the engine burns one random draw per empty tile on each farm before it picks the next shop, so one extra dig changes which shop opens. Steering it on purpose would need the hidden seed, which you can't infer in time. Worth knowing anyway; credit to leoprovorov for working that out in public.
 
-## Tools worth reusing
+The top three don't run a tape at all. From step one they play one integrated controller: herd sized from the first three shops, land bought on fixed days, tomatoes from day 8 in every world, 12 hands a day, no wheat churn, premium goods sold a unit or two after each shop tick. We extracted that playbook from their replays in detail. Bolting any piece of it onto a tape-plus-executor agent lost every single time, sometimes badly. It has to be built as one thing.
 
-Exact engine re-pricing ledgers from replays; a top-field tape judge (recorded top agents vs a candidate, paired); a fresh-seed bench with per-step timing; the CMA-ES harness; the "playbook" extraction of a team's policy from its replays; a shop-pinned bench that cuts paired noise ~8x.
+## What failed
+
+Fourth quadrant (-4k). A tomato wave on our executor (-6k). The top-3 opening in front of our executor (-8k to -14k). A from-scratch reactive controller after one day of work (-30k). A transformer imitating top replays (falls apart after a few steps). Macro PPO self-play (about rank 55). Forecasting and racing the rival's sales. Copying the leaders' layouts. Evolutionary search over macro plans. Bigger search budgets for the router (it had already converged). And 46 of the 77 knobs we screened never change a single action.
+
+## Things we'd reuse
+
+Exact ledgers rebuilt from replays by re-running the engine's market rules. A "tape judge" that replays a top team's recorded game against your candidate on the same seed and shops. A fresh-seed bench that logs per-step time, because a slow step is a lost game. The CMA-ES harness. And pinning the shop sequence when comparing two builds, which cut the noise on paired margins by about 8x.
 
 ## Credits
 
-Opening library derived from public replays (recorded actions of top agents); early lineage from yhay81's *Three-Day Shop Router* (Apache-2.0); executor base by Codex (same team); order-book slot mechanic from thomastschinkel's *The 2945 Farm*; RNG analysis from leoprovorov. Built with Claude (Fable 5.1) and Codex as coding agents. Apache-2.0.
+Opening library from public replays. Early lineage from yhay81's Three-Day Shop Router (Apache-2.0). Executor base by Codex on our team. Order-book slot idea from thomastschinkel's The 2945 Farm. RNG analysis from leoprovorov. Most of the code and experiments were written with Claude and Codex as coding agents, with a lot of arguing in between. Apache-2.0.
